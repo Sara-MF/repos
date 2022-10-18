@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function App(props) {
+
+  const [ user, setUser ] = useState('');
+
+  function handleSearch() {
+    axios.get(`https://api.github.com/users/${user}/repos`).then(response => console.log(response.data));
+  }
+
   return (
-    // fragment (tags vazias) pra n quebrar o css ao invés de uma div
-    // n estão dentro de uma tag especifica
     <>
       <h1>{ props.title }</h1>
-      <input name="usuario" id="usuario" className="usuarioInput" placeholder="Usuário"/>
-      <button>Pesquisar</button>
+      <input className="userInput" placeholder="Usuário" value={user} onChange={e => setUser(e.target.value)} />
+      <button onClick={handleSearch}>Pesquisar</button>
     </>
    
   );
