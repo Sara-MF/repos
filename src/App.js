@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // fragment (tags vazias) pra n quebrar o css ao invés de uma div
+    // n estão dentro de uma tag especifica
+    <>
+      <h1>{ props.title }</h1>
+      <input name="usuario" id="usuario" className="usuarioInput" placeholder="Usuário"/>
+      <button>Pesquisar</button>
+    </>
+   
   );
 }
 
