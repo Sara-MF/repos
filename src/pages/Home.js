@@ -1,7 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import * as S from '../styles/home'; // S de style
 
-function Home(props) {
+function Home() {
 
   const [ user, setUser ] = useState('');
 
@@ -10,11 +11,11 @@ function Home(props) {
   }
 
   return (
-    <Fragment>
-      <h1>{ props.title }</h1>
-      <input className="userInput" placeholder="Usuário" value={user} onChange={e => setUser(e.target.value)} />
-      <button onClick={handleSearch}>Pesquisar</button>
-    </Fragment>
+    <S.Container>
+      <S.Title>Repos</S.Title>
+      <S.Input className="userInput" placeholder="Usuário" value={user} onChange={e => setUser(e.target.value)} />
+      <S.Button onClick={handleSearch}>Pesquisar</S.Button>
+    </S.Container>
   )
 }
 
